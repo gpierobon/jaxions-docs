@@ -5,41 +5,51 @@ nav_order: 1
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 permalink: /
 ---
+<script
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript">
+</script>
+
+<img src="images/cover.png" width="800">
+
 # Jaxions
 {: .fs-9 }
 
 A grid-based massively parallel code to study the Axion field evolution before, around and after the QCD phase transition
 {: .fs-6 .fw-300 }
 
-[View it on GitHub][Jaxions repo]{: .btn .fs-5 .mb-4 .mb-md-0 }
+[View it on GitHub][Jaxions repo]{: .btn}
 
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages
+## Overview 
 
-Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
+- Axion string simulations to calculate emission spectra
+- String-Wall network simulations with $N=1$, $N=2$
+- Generalisation to axion-like-particles 
+- Interface with [AxionNyx][AxioNyx repo] and [gagdet-4][gadget4 repo] 
 
-{: .note }
-This is a note.
+## Obtain the code
 
-{: .warning }
-This is a warning.
+To download the source code from the public repository use:
 
-{: .new }
-This is new.
+```
+git clone https://github.com/veintemillas/jaxions.git
+```
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
+## Documentation
 
-To get started with creating a site, just click "[use this template]"!
+A detailed pdf version of the documentation is under development. For reference on the physics implemented, please also refer to the papers.
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md#hosting-your-docs-from-an-existing-project-repo) in the template README.
+## Papers using jaxions 
+- *A. Vaquero, J. Redondo, J. Stadler*, Early seeds of axion miniclusters, [1809.09241](https://arxiv.org/abs/1809.09241)
+- *C. O'Hare, G.Pierobon, J. Redondo, Y. Wong*, Simulations of axionlike particles in the post-inflationary scenario, [2112.05117](https://arxiv.org/abs/2112.05117)
+- *B. Eggemeier, C. O'Hare, G.Pierobon, J. Redondo, Y. Wong*, Axion minivoids and implications for direct detection, [2212.00560](https://arxiv.org/abs/2212.00560)
+  {: .d-inline-block }
+  New  
+  {: .label .label-green}
+
 
 ----
 
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
-
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[Jaxions repo]: htpps://github.com/veintemillas/jaxions
-[GitHub Pages]: https://docs.github.com/en/pages
-[README]: https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md
-[Jekyll]: https://jekyllrb.com
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
+[Jaxions repo]: https://github.com/veintemillas/jaxions/
+[gadget4 repo]: https://wwwmpa.mpa-garching.mpg.de/gadget4/
+[AxioNyx repo]: https://github.com/axionyx/axionyx_1.0

@@ -1,5 +1,5 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: Jaxions-docs
+description: Jaxions code documentation
 theme: just-the-docs
 baseurl: "" 
 
@@ -9,10 +9,12 @@ url: https://just-the-docs.github.io
 aux_links:
   View on GitHub: https://github.com/veintemillas/jaxions
 
-aux_links_new_tab: true 
+aux_links_new_tab: true
 
-logo: "cover.png"
+heading_anchors: true
 
+#logo: "images/cover.png"
+favicon_ico: "favicon.ico"
 enable_copy_code_button: true
 
 color_scheme: myscheme
@@ -70,5 +72,22 @@ back_to_top_text: "Back to top"
 
 footer_content: "Copyright &copy; 2023"
 
+plugins:
+  - jekyll-seo-tag
+  - jekyll-github-metadata
 
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
+  # ignore:
+  #   envs: all
 
