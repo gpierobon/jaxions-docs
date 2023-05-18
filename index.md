@@ -41,14 +41,13 @@ A detailed pdf version of the documentation is under development. For reference 
 
 ## Papers using jaxions 
 - *A. Vaquero, J. Redondo, J. Stadler*, Early seeds of axion miniclusters, [1809.09241](https://arxiv.org/abs/1809.09241)
+- *B. Eggemeier, J. Redondo, K. Dolag, J. Niemeyer, A. Vaquero*, First Simulations of Axion Minicluster Halos, [1911.09417](https://arxiv.org/abs/1911.09417)
 - *C. O'Hare, G.Pierobon, J. Redondo, Y. Wong*, Simulations of axionlike particles in the post-inflationary scenario, [2112.05117](https://arxiv.org/abs/2112.05117)
 - *B. Eggemeier, C. O'Hare, G.Pierobon, J. Redondo, Y. Wong*, Axion minivoids and implications for direct detection, [2212.00560](https://arxiv.org/abs/2212.00560)
   {: .d-inline-block }
   New  
   {: .label .label-green}
 
-
-----
 
 [Jaxions repo]: https://github.com/veintemillas/jaxions/
 [gadget4 repo]: https://wwwmpa.mpa-garching.mpg.de/gadget4/

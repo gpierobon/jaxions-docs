@@ -54,7 +54,16 @@ The compilation can be speeded up by using multiple threads in the last step.
 
 ### Compilation options 
 
-We recommend to compile with the most advanced AVX flags possible, no GPU, without NYX output and with just one time-integrator (RKN4 happens to be the best).
+We recommend to compile with the most advanced AVX flags possible, no GPU, without NYX output and with just one time-integrator (RKN4 happens to be the best). This can be done in the `cmake` step by typing for example
+```
+cmake -D USE_AVX=ON USE_GPU=OFF ../jaxions
+```
+or by modifying the `CMakeLists.txt` file in `jaxionsdir/jaxions`.
+
+The HDF5_PARALLEL_COMPRESSION compilation option needs to stay `ON` always. The `OFF` option is currently not supported.
+{: .warning}
+
+A list of compilation options can be found in the following table.
 
 | Option       | Use ON            | 
 |:-------------|:------------------|
@@ -66,7 +75,7 @@ We recommend to compile with the most advanced AVX flags possible, no GPU, witho
 | USE_AVX           | if your CPU supports Advance Vector eXtensions (AVX1.0) |
 | USE_NN_BINS | to produce axion-spectra normalised with 1/$\omega$ for occupation numbers |
 | USE_NYX_OUTPUT | to save configurations in AMReX format (in adition to HDF5), requires AMReX library | 
-| USE_GPU | o evolve fields in the GPU (NVIDIA only) |
+| USE_GPU | to evolve fields in the GPU (NVIDIA only) |
 | USE_AVX | if your CPU supports Advance Vector eXtensions (AVX1.0) | 
 | USE_AVX2 | if your CPU supports Advance Vector eXtensions with integers (AVX2.0) | 
 | USE_AVX512 | if your CPU supports AVX512 | 
@@ -78,6 +87,11 @@ sysctl -a | grep machdep.cpu.features
 ```
 
 ### Issues 
+
+- On MacOS the default compiler is Apple clang, if however one wants to compile with the GNU or Intel compiler it needs to specified as in the following:
+```
+cmake -D CMAKE_C_COMPILER=/path/to/your/gcc ../jaxions
+```
 
 ## Running on the GPU
 

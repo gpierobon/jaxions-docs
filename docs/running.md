@@ -3,10 +3,27 @@ layout: default
 title: Running the code
 nav_order: 4
 ---
+1. TOC
+{:toc}
 
-Under construction ...
+## Summary 
 
-## Example scripts
+Jaxions is a modular code that allows the user to create a custom program, however there are five different programs already implemented to use the various different features:
+
+- `vaxion3d`: this is the **main** program to solve Klein-Gordon eqaution for the complex field or the real scalar and allowing several initial conditions and physical characteristics. 
+- `WKVaxion`: this is the program that evaluates the grid with a WKB approximation to a given time/redshift.
+- `paxion`: this program transforms the **real scalar field** into a complex wavefunction and continues the evolution with the Schroedinger-Poisson equations.
+- `redu`: this program reduces the resolution and saves the new grid. 
+- `gadgetme`: this program creates an HDF5 particle configuration compatible with gadget-4.
+
+`mpirun -np <num_cores> /path/to/vaxion3d {options}`
+
+### An example script
+
+An example bash script is provided in `jaxionsdir/jaxions/scripts/vax-ex.sh` and can be seen here: 
+
+<details>
+  <summary>Click to expand!</summary>
 
 ```bash
 N=256 ; RANKS=4 ; DEPTH=$(echo $N/$RANKS | bc)
@@ -32,3 +49,11 @@ export OMP_NUM_THREADS=4
 
 mpirun $USA -np $RANKS vaxion3d $GRID $SIMU $PHYS $INCO $OUTP
 ```
+
+</details>
+
+## Runtime options
+
+### Grid and evolution
+
+### Measurements
