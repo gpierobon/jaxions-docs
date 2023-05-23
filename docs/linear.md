@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Initial Conditions
+title: Linear evolution
 parent: Physics
-nav_order: 3
+nav_order: 4
 ---
 
 

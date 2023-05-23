@@ -5,10 +5,6 @@ nav_order: 1
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 permalink: /
 ---
-<script
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-  type="text/javascript">
-</script>
 
 <img src="images/cover.png" width="800">
 
@@ -20,12 +16,14 @@ A grid-based massively parallel code to study the Axion field evolution before, 
 
 [View it on GitHub][Jaxions repo]{: .btn}
 
-## Overview 
+## Overview
 
 - Axion string simulations to calculate emission spectra
-- String-Wall network simulations with $N=1$, $N=2$
+- String-Wall network simulations with $$ N_{\rm DW}=1 $$, $$ N_{\rm DW}=2 $$
 - Generalisation to axion-like-particles 
 - Interface with [AxionNyx][AxioNyx repo] and [gagdet-4][gadget4 repo] 
+
+Details on the physics of $$ \texttt{jaxions} $$ are found [here]({% link docs/physics.md %}).
 
 ## Obtain the code
 

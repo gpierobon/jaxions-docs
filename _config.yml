@@ -76,6 +76,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-github-metadata
 
+markdown: kramdown
 kramdown:
   syntax_highlighter_opts:
     block:

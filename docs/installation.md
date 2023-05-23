@@ -9,6 +9,7 @@ nav_order: 2
 
 1. TOC
 {:toc}
+{: .highlight}
 
 ## Dependencies 
 
@@ -22,14 +23,14 @@ To compile the code and run a typical simulation you will need working C/C++ com
   -  `--enable-avx`, `--enable-avx2` or `--enable-avx512` to exploit vector operations 
 - Hierarchical Data Format ([HDF5](https://www.hdfgroup.org/solutions/hdf5/), version 1.10.2 or later). The `--enable-parallel` option **needs to be included** in the configuration to allow for parallel compression of large files.
 - Message Passing Interface (MPI), version 3.0 or higher. Working examples are [Intel-MPI](https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html) and  [OpenMPI](https://www.open-mpi.org/). We have not tested [MPICH](https://www.mpich.org/).   
-- NVIDIA Cuda [Toolkit](https://developer.nvidia.com/cuda-downloads), **for GPU runs only**. The installed version of the cuda libraries needs to be compatible with the drivers in the cards, this can be checked by typing `nvcc --version`. 
+- NVIDIA CUDA [Toolkit](https://developer.nvidia.com/cuda-downloads), **for GPU runs only**. The installed version of the cuda libraries needs to be compatible with the drivers in the cards, this can be checked by typing `nvcc --version`. 
 
 {: .note }
 
 Most of these libraries  are typically available in most HPC environments, where they can be simply loaded by the command `module load <module_name>` etc. To make sure the parallel options are present type `module show <module_name>` and then check the configurations settings from the specified path.
 
 {: .warning }
-Note that jaxions only supports Intel CPUs or NVIDIA graphic cards (in GPU mode) at the moment. Typically one of these two options are available in HPC environments.
+Note that jaxions only supports **Intel CPUs** or **NVIDIA** graphic cards (in GPU mode) at the moment. Typically one of these two options are available in HPC environments.
 
 To visualise the output and to analyse the simulations some python packages need to be installed: 
 - `numpy`
@@ -54,9 +55,9 @@ The compilation can be speeded up by using multiple threads in the last step.
 
 ### Compilation options 
 
-We recommend to compile with the most advanced AVX flags possible, no GPU, without NYX output and with just one time-integrator (RKN4 happens to be the best). This can be done in the `cmake` step by typing for example
+We recommend to compile with the most advanced AVX flags possible, no GPU, without NYX output and with just the default time-integrator RKN4. This can be done in the `cmake` step by typing for example
 ```
-cmake -D USE_AVX=ON USE_GPU=OFF ../jaxions
+cmake -D USE_AVX=ON -D USE_GPU=OFF ../jaxions
 ```
 or by modifying the `CMakeLists.txt` file in `jaxionsdir/jaxions`.
 
@@ -71,9 +72,9 @@ A list of compilation options can be found in the following table.
 | USE_PROP_MLEAP | to compile 8-step leapfrog time-integrator |
 | USE_PROP_OM2 | to compile 3-step Omelyan symetric time-integrator |
 | USE_PROP_OM4 | to compile 8-step Omelyan symetric time-integrator |
-| USE PROP RKN4 | to compile optimised McLachlan time-integrator[^1]   |
+| USE_PROP_RKN4 | to compile optimised McLachlan time-integrator[^1]   |
 | USE_AVX           | if your CPU supports Advance Vector eXtensions (AVX1.0) |
-| USE_NN_BINS | to produce axion-spectra normalised with 1/$\omega$ for occupation numbers |
+| USE_NN_BINS | to produce axion-spectra normalised with 1/$$\omega$$ for occupation numbers |
 | USE_NYX_OUTPUT | to save configurations in AMReX format (in adition to HDF5), requires AMReX library | 
 | USE_GPU | to evolve fields in the GPU (NVIDIA only) |
 | USE_AVX | if your CPU supports Advance Vector eXtensions (AVX1.0) | 
@@ -85,6 +86,19 @@ To check what operations your CPU supports you can issue the command
 ```
 sysctl -a | grep machdep.cpu.features
 ```
+### Environment variables
+
+It is useful to define environmental variables to run the programs and import the analysis python scripts. In the `.bashrc` or equivalent you can update the `$PATH` variable, in order to find the executable files  
+
+```bash
+export PATH="/path/to/jaxionsdir/build/test:\$PATH"
+```
+
+and the `$PYTHONPATH` variable, to import the python scripts
+
+```bash
+export $PYTHONPATH=/path/to/jaxionsdir/jaxions/scripts:$PYTHONPATH
+```
 
 ### Issues 
 
@@ -92,8 +106,6 @@ sysctl -a | grep machdep.cpu.features
 ```
 cmake -D CMAKE_C_COMPILER=/path/to/your/gcc ../jaxions
 ```
-
-## Running on the GPU
 
 ---
 [^1]: R. I. McLachlan and P. Atela, “The accuracy of symplectic integrators”, Nonlinearity 5 (1992) 541.
